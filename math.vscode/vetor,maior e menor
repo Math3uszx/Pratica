@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    
+    int numero[5];
+    int maior;
+    int menor = 9999;
+    int i;
+
+    
+    for(i = 0;i < 5;i++){
+        
+        printf("numero %d:",i+1);
+        scanf("%d",&numero[i]);
+        
+     maior = maior > numero[i]? maior: numero[i];
+     menor = menor < numero[i]? menor: numero[i];
+   
+    }
+    
+    for(i = 0;i < 5;i++){
+     
+            
+        printf("%iº numero: %i \n",i+1, numero[i]);
+    }
+    
+        printf("Maior: %i \n",maior);
+        printf("Menor: %i \n",menor);
+    return 0;
+}
