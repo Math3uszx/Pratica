@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    
+    int numero[6];
+    int par = 0;;
+    int impar = 0;;
+    int i;
+
+    
+    for(i = 0;i < 6;i++){
+        
+        printf("numero %d:",i+1);
+        scanf("%d",&numero[i]);
+        
+    
+    system("cls || clear");
+    
+    if(numero[i] % 2 == 0)
+    {
+        par++;
+    } else {
+       impar+= 1;
+    }
+    }
+    
+    for(i = 0;i < 6;i++){
+        printf("%iº numero: %i \n",i+1, numero[i]);
+    }
+    
+        printf("par: %i \n",par);
+        printf("impar: %i \n",impar);
+    return 0;
+}
