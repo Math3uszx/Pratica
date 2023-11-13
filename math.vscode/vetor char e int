@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int idade[6];
+    char nome[150] [5];
+    
+    int i;
+
+    
+    for(i = 0;i < 5;i++){
+        
+       
+        fflush(stdin);
+        printf("nome %dº pessoa: \n",i+1);
+        scanf("%s",&nome[i]);
+        
+        printf("idade %dº pessoa: \n",i+1);
+        scanf("%d",&idade[i]);
+        
+    system("cls || clear");
+    }
+    
+    for(i = 0;i < 5;i++){
+        printf("%iº nome: %s \n",i+1, nome[i]);
+        printf("%iº idade:%i \n \n",i+1, idade[i]);
+        fflush(stdin);
+            
+    }
+    
+    return 0;
+}
