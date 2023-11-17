@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main(){
+setlocale(LC_ALL,"portuguese");
+
+    int valor[6];
+    int i;
+    
+    for (i = 0; i < 6; i++)
+    {
+    printf("Digite o %dº valor:", i+1);
+    scanf("%d",&valor[i]);
+
+    while (valor[i] % 2 == 1 || valor[i] <= 0)
+    {
+        printf("válido apenas números pares e positivos \n");
+        scanf("%d",&valor[i]);
+    }
+    }
+    
+    
+    for (i = 5; i >= 0; i--)
+    {
+    printf("valores: %d \n",valor[i]);
+    
+    }
+    return 0;
+}
