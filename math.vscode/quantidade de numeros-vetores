@@ -73,7 +73,7 @@ int main()
     
    for (i = 5; i >= 1; i--)
    {
-    printf("invertido: %d \n",i);
+    printf("invertido: %d \n",numero[i]);
    }
     return 0;
 }
