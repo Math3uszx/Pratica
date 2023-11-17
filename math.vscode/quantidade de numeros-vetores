@@ -1,0 +1,79 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main()
+{
+    setlocale(LC_ALL, "portuguese");
+
+    int numero[5];
+    int i;
+    int par = 0;
+    int impar=0;
+    int maior = 0;
+    int menor = 9999;
+    int soma = 0;
+    int somapar=0;
+    int somaimpar=0;
+    int contador = 0;
+    float mediapar = 0;
+    float mediaimpar = 0;
+    float media = 0;
+    int positivo = 0;
+    int negativo = 0;
+
+    for (i = 1; i <= 5; i++)
+    {
+        printf("Digite o %dº número:", i);
+        scanf("%d", &numero[i]);
+
+        contador++;
+        if (numero[i] >= 0)
+        {
+            positivo++;
+        }
+        else
+        {
+            negativo++;
+        }
+
+        if (numero[i] % 2 == 0)
+        {
+            par++;
+            somapar += numero[i];
+        }
+        else
+        {
+            impar++;
+            somaimpar += numero[i];
+        }
+
+        maior = numero[i] < maior ? maior : numero[i];
+        menor = numero[i] > menor ? menor : numero[i];
+
+        soma += numero[i];
+    }
+    printf("\n");
+
+    mediapar = somapar / par;
+    mediaimpar = somaimpar / impar;
+    media = soma / contador;
+    printf("\n");
+    printf("Quantidade de Números pares: %d\n", par);
+    printf("Quantidade de Números ímpares: %d\n", impar);
+    printf("Quantidade de Números positivos: %d\n", positivo);
+    printf("Quantidade de Números negativos: %d\n", negativo);
+    printf("Quantidade de Números inseridos: %d\n", contador);
+    printf("Maior número:%d\n", maior);
+    printf("Menor número:%d\n", menor);
+    printf("média de número pares: %.1f\n", mediapar);
+    printf("média de número impares: %.1f\n", mediaimpar);
+    printf("média dos números inseridos: %.1f\n", media);
+   printf("\n");
+    
+   for (i = 5; i >= 1; i--)
+   {
+    printf("invertido: %d \n",i);
+   }
+    return 0;
+}
