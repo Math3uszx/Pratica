@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    char nomes[3][200];
+    char integrante[5][200];
+    int i,j;
+   
+    for(i = 0;i < 3;i++){
+     printf("Digite o nome da banda:");
+     scanf("%s",&nomes[i]);
+        
+        
+        for(j = 1;j<= 5;j++){
+            printf("%dº integrante:",j);
+            scanf("%s",&integrante[i][j]);
+            
+        }
+        setbuf(stdin , 0);
+        
+    
+    }
+    
+    
+    //exibição
+    for(i = 0;i < 3;i++){
+     printf("\nNome da banda: %s \n",nomes[i] );
+    
+        for(j = 1;j<= 5;j++){
+            printf("\n %dº integrante: %s \n",j,integrante[i][j]);
+        }
+    
+    }
+    
+    
+    return 0;
+}
