@@ -3,43 +3,37 @@
 
 int main()
 {
-    char nomes[2][200];
-    float notas [2][2];
-    int i,j;
-    int soma = 0;
-    float media[3];
-   
-    for(i = 0;i < 3;i++){
-     printf("Digite o nome da disciplina:");
-     scanf("%s",&nomes[i]);
-        
-        
-        
-        for(j = 1;j<= 2;j++){
-            printf("Digite a %dº nota:",j);
-            scanf("%f",&notas[i][j]);
-            
-            soma += notas[i][j];
+
+    int i, j;
+    char nomeBanda[3][200];
+    char integrantes[3][5][200];
+
+    for (i = 0; i < 3; i++)
+    {
+        printf("%dº Banda: ", i + 1);
+        gets(nomeBanda[i]);
+
+        for (j = 0; j < 5; j++)
+        {
+            printf("%d Integrante: ", j + 1);
+            gets(integrantes[i][j]);
         }
-        media[i] = soma / j;
-        soma = 0;
-    
-        setbuf(stdin , 0);
-    }
-    
-    
-    //exibição
-    for(i = 0;i < 3;i++){
-     printf("\nNome da disciplina: %s \n",nomes[i] );
-    
-        for(j = 1;j<= 2;j++){
-            printf("Digite a %dº Nota: %.1f \n",j,notas[i][j]);
-            
-        }
-        printf("\n media: %.1f \n",media[i]);
 
     }
-    
-    
+    system("cls || clear");
+
+    for (i = 0; i < 3; i++)
+    {
+
+        printf("%dº Banda: %s \n", i + 1, nomeBanda[i]);
+        printf("-------------------------\n");
+
+        for (j = 0; j < 5; j++)
+        {
+            printf("%dº Integrante: %s \n", j + 1, integrantes[i][j]);
+        }
+        printf("------------------------\n");
+    }
+
     return 0;
 }
