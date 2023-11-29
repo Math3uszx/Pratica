@@ -1,0 +1,56 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+    int main(){
+      setlocale(LC_ALL,"portuguese");
+
+     struct dados_aluno{
+        char nome[200];
+        int idade;
+        float notas[2];
+        float media;
+        
+     };
+     float soma = 0;
+
+
+     struct dados_aluno aluno[3];
+     int i;
+     int j;
+
+        for (i = 0; i < 3; i++)
+        {
+         printf("Informe o nome do aluno: \n");
+         gets(aluno[i].nome);
+
+         printf("Informe a idade do aluno:\n");
+         scanf("%i",&aluno[i].idade);
+
+            for ( j = 0; j < 2; j++)
+            {
+                    printf("%dº Nota:\n",j + 1);
+                    scanf("%f",&aluno[i].notas[j]);
+
+           soma += aluno[i].notas[j];
+            }
+           aluno[i].media = soma / j;
+              soma = 0;
+           fflush(stdin);
+        }
+
+            for (i = 0; i < 3; i++)
+            {
+                printf("\n Nome do aluno: %s \n",aluno[i].nome);
+                printf("\n Idade do aluno: %i \n",aluno[i].idade);
+
+                for ( j = 0; j < 2; j++)
+                {
+              printf("\n  %dº Nota: %.1f \n",j + 1,aluno[i].notas[j]);
+                }
+                    printf("\n Média: %.1f \n",aluno[i].media);
+                    
+            }
+                
+        return 0;
+    }
