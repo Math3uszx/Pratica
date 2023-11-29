@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main(){
+
+    struct dados_usuario{
+        char nome[200];
+        char dataDeNascimento [200];
+        int Rg;
+        char cpf[200];
+    };
+        struct dados_usuario usuario[5];
+        int i;
+
+        for(i = 0; i < 5;i++){
+         printf("Informe seu Nome: \n");
+         gets(usuario[i].nome);
+
+         printf("Informe sua data de nascimento: \n");
+         gets(usuario[i].dataDeNascimento);
+
+         printf("Informe seu RG: \n");
+         scanf("%i",&usuario[i].Rg);
+
+         printf("Informe seu CPF: \n");
+         gets(usuario[i].cpf);
+
+                fflush(stdin);
+        }
+
+            printf("\n Exibindo dados....\n");
+            for (i = 0; i < 5; i++)
+            {
+            printf("\n Nome do usúario: %s \n",usuario[i].nome);
+            printf("\n data de NAscimento do usúario: %s \n",usuario[i].dataDeNascimento);
+            printf("\n RG do usúario: %i \n",usuario[i].Rg);
+            printf("\n CPF do usúario: %s \n",usuario[i].cpf);
+            }
+    return 0;
+}
