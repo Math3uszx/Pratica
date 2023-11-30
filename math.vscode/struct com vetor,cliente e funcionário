@@ -1,0 +1,70 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct dados_funcionario {
+    char nome [200];
+    char dataAdmissao [200];
+    char matricula [20];
+    char endereco [200];
+};
+
+struct dados_cliente {
+    char nome [200];
+    char dataNascimento [200];
+    char endereco [200];
+};
+
+int main() {
+   
+    struct dados_funcionario funcionario[3];
+    struct dados_cliente cliente[3];
+    int i;
+   
+    for(i = 0; i < 3; i++) {
+        printf("\nSolicitando dados do funcionario... \n");
+        printf("\nDigite o nome: ");
+        gets(funcionario[i].nome);
+   
+        printf("Digite a data de admissão: ");
+        gets(funcionario[i].dataAdmissao);    
+       
+        printf("Digite a matricula: ");
+        gets(funcionario[i].matricula);
+       
+        printf("Digite o endereço: ");
+        gets(funcionario[i].endereco);
+    }
+   
+    system("cls || clear");
+   
+    for(i = 0; i < 3; i++) {
+        printf("\nSolicitando dados do cliente... \n");
+        printf("\nDigite o nome: ");
+        gets(cliente[i].nome);
+   
+        printf("Digite a data de nascimento: ");
+        gets(cliente[i].dataNascimento);
+       
+        printf("Digite o endereço: ");
+        gets(cliente[i].endereco);
+    }
+   
+    system("cls || clear");
+
+    for(i = 0; i < 3; i++) {
+        printf("\nExibindo dados do funcionário... \n");    
+        printf("\nNome: %s \n", funcionario[i].nome);
+        printf("Data de admissão: %s \n", funcionario[i].dataAdmissao);
+        printf("Matricula: %s \n", funcionario[i].matricula);
+        printf("Endereco: %s \n", funcionario[i].endereco);
+    }
+   
+    for(i = 0; i < 3; i++) {
+        printf("\nExibindo dados do cliente... \n");
+        printf("\nNome: %s \n", cliente[i].nome);
+        printf("Data de nascimento: %s \n", cliente[i].dataNascimento);
+        printf("Endereço: %s \n", cliente[i].endereco);
+    }
+   
+    return 0;
+}
