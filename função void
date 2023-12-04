@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+void cabecalho(){ 
+    //void é um cabeçalho que não recebe retorno,ele apenas executa
+    printf("\n========================\n");
+    printf("\n\t SENAI\n");
+    printf("\n========================\n");
+
+}
+
+int main(){
+
+    char nome[200];
+    int idade;
+
+   cabecalho();
+
+    printf("Digite seu nome:");
+    gets(nome);
+
+    printf("Digite sua idade:");
+    scanf("%d",&idade);
+
+    system ("cls || clear");
+
+    cabecalho();
+
+    printf("Nome: %s \n", nome);
+    printf("Idade: %i \n", idade);
+
+    return 0;
+}
