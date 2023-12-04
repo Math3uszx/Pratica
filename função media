@@ -1,0 +1,44 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+void cabecalho(){ 
+    //void é um cabeçalho que não recebe retorno,ele apenas executa
+    printf("\n========================\n");
+    printf("\n\t SENAI\n");
+    printf("\n========================\n");
+}
+
+ float CalculoMedia(int a, int b){
+    float media;
+
+    media =  (a + b)/ (float) 2;
+    return media;
+}
+
+int main(){
+
+    int SegundoNumero;
+    int PrimeiroNumero;
+    float media;
+
+   cabecalho();
+
+    printf("Digite o primeiro numero:");
+    scanf("%d",&PrimeiroNumero);
+
+    printf("Digite o segundo numero:");
+    scanf("%d",&SegundoNumero);
+
+
+    system ("cls || clear");
+    media = CalculoMedia (PrimeiroNumero, SegundoNumero);
+
+    cabecalho();
+
+    printf("Primeiro Numero: %i \n", PrimeiroNumero);
+    printf("segundo Numero: %i \n", SegundoNumero);
+    printf("media: %.1f \n", media);
+
+    return 0;
+}
