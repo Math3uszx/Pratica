@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+ 
+ int conversao (int metros){
+    int centimetro;
+    centimetro = metros * 100;
+    return centimetro;
+ }
+
+
+ int main(){
+    setlocale(LC_ALL,"portuguese");
+
+    int valor;
+    int resultado;
+     printf("Digite um valor em metros:");
+     scanf("%d",&valor);
+
+        resultado = conversao(valor);
+     printf("Valor em centimetros: %d \n", resultado);   
+        return 0;
+ }
