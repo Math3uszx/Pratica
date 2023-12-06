@@ -1,0 +1,49 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+ 
+ int somar (int n1 , int n2){
+    int resultadoSoma;
+    resultadoSoma = n1 + n2;
+    return resultadoSoma;
+ }
+
+ int subtrair ( int  n1, int n2){
+    return n1 - n2;
+ }
+
+    int multiplicar (int n1, int n2){
+        return n1 * n2;
+    }
+
+    float dividir (int n1 , int n2){
+        return n1 /n2;
+    }
+
+ int main(){
+    setlocale(LC_ALL,"portuguese");
+
+    int Primeironumero;
+    int Segundonumero;
+    int soma, subtracao, multiplicacao;
+    float divisao;
+
+     printf("Digite o primeiro numero:");
+     scanf("%d",&Primeironumero);
+        
+     printf("Digite o Segundo numero:");
+     scanf("%d",&Segundonumero);
+    
+     soma = somar(Primeironumero, Segundonumero);   
+     subtracao = subtrair(Primeironumero, Segundonumero);   
+     multiplicacao = multiplicar(Primeironumero, Segundonumero);   
+     divisao = dividir(Primeironumero, Segundonumero);   
+
+     printf("Primeiro Numero: %d \n", Primeironumero);
+     printf("Segundo Numero: %d \n", Segundonumero);
+     printf("Soma: %d \n", soma);
+     printf("Subtração: %d \n", subtracao);
+     printf("multiplicação: %d \n", multiplicacao);
+     printf("Divisão: %d \n", divisao);
+     return 0;
+ }
