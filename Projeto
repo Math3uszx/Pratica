@@ -1,0 +1,230 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+#include <string.h>
+#include <time.h>
+#include <windows.h>
+
+struct dados_cadastros
+{
+    char nome[200];
+    char data[10];
+    char agencia[4];
+    char cpf[14];
+    char sobrenome[200];
+    float saldo;
+    float dinheiroDepositado;
+    float dinheiroRetirado;
+    float dinheiroEmprestimo;
+};
+
+void limpatela(){
+        system("cls || clear");
+}
+
+void cadastrar (struct dados_cadastros *cadastros){
+    int contadorCadastro;
+    int i;
+
+            fflush(stdin);
+            printf("Insira seu nome: \n");
+            gets(cadastros[i].nome);
+            printf("_________________________________\n");
+
+            printf("\nInsira seu sobrenome: \n");
+            gets(cadastros[i].sobrenome);
+            printf("_________________________________\n");
+
+            printf("\nInsira sua data de nascimento: \n");
+            gets(cadastros[i].data);
+            printf("_________________________________\n");
+
+             printf("\nInsira seu CPF: \n");
+            gets(cadastros[i].cpf);
+            printf("_________________________________\n");
+
+            printf("\nInsira o número da agência do seu cartão: \n");
+            gets(cadastros[i].agencia);
+            printf("_________________________________\n");
+
+            printf("Insira a quantidade de saldo: \n");
+            scanf("%f" ,&cadastros[i].saldo);
+
+            contadorCadastro++;
+        }
+
+void titulo(struct dados_cadastros *cadastros){
+int i;
+        printf("\n|Nome do Titular: %s  %s \n" ,cadastros[i].nome ,cadastros[i].sobrenome);
+        printf("|Saldo na Conta: %.3f\n" ,cadastros[i].saldo);
+        printf(".................................................................\n");
+}
+
+void depositarEsacar(struct dados_cadastros *cadastros){
+    int codigo2;
+    int i;
+    float deposito = 0;
+    float sacar = 0;
+
+    printf("______________________________________________\n");
+    printf("(1) Depositar Dinheiro\n");
+    printf("(2) Sacar Dinheiro\n");
+    printf("Escolha uma das opções acima: \n");
+    scanf("%d" ,&codigo2);
+
+    limpatela();
+    fflush(stdin);
+        switch (codigo2)
+        {
+        case 1:
+            printf("Digite a quantidade de dinheiro que deseja depositar: \n");
+            scanf("%f" ,&cadastros[i].dinheiroDepositado);
+            limpatela();
+
+            deposito = cadastros[i].dinheiroDepositado + cadastros[i].saldo;
+            titulo(cadastros);
+                        printf("\n-|Total de dinheiro depositado: R$%.3f\n" ,cadastros[i].dinheiroDepositado );
+            printf("-|Quantidade Total do Saldo após o deposito: R$%.3f \n" ,deposito);
+
+            printf("\n \n \n");
+
+            break;
+
+        case 2:
+            printf("Digite a quantidade de dinheiro que deseja retirar: \n");
+            scanf("%f" ,&cadastros[i].dinheiroRetirado);
+            limpatela();
+
+            sacar = cadastros[i].saldo - cadastros[i].dinheiroRetirado;
+            titulo(cadastros);
+            printf("\n-|Total de dinheiro retirado: R$%.3f\n" ,cadastros[i].dinheiroRetirado );
+            printf("\n-|Quantidade Total do Saldo após a retirada de dinheiro: R$%.3f \n" ,sacar);
+            if(sacar < 0){
+                printf("\t-|Saldo negativo na conta!\n");
+                printf("\t-|Você terá 10 dias para resolver a situação-\n");
+            }
+
+            printf("\n \n \n");
+            break;
+
+        default:
+        printf("Opção inválida!\n");
+            break;
+        }
+}
+
+void fazer_emprestimo(struct dados_cadastros *cadastros){
+    int i;
+    int prazo;
+    float valorPagar;
+    float saldoFinal;
+
+    printf("\n\t--|Empréstimo|--\n");
+    printf("\t|-Máximo de R$20.000\n");
+    printf("\t|-Minímo de R$1.000\n");
+    printf("\n");
+    printf("\tPrazo: 2 meses a 32 meses com 2porcento de juros (cada mês)\n");
+    printf("\t-----------------------\n");
+
+
+    printf("Informe a quantidade de dinheiro para empréstimo: \n");
+    scanf("%f" ,&cadastros[i].dinheiroEmprestimo);
+
+    printf("Informe o prazo desejado para o pagamento: \n");
+    scanf("%d" ,&prazo);
+
+    limpatela();
+
+    if (cadastros[i].dinheiroEmprestimo > 20000 || prazo > 32)
+    {
+        printf("O valor atingiu o máximo do limite!\n");
+        printf("Por favor tente novamente!\n");
+        printf("\n---------------------------------------\n");
+    } else if(cadastros[i].dinheiroEmprestimo < 1000 || prazo < 2){
+
+            printf("O valor atingiu o minímo do limite!\n");
+            printf("Por favor tente novamente!\n");
+            printf("\n---------------------------------------\n");
+
+        } else if (cadastros[i].dinheiroEmprestimo <= 20000 || cadastros[i].dinheiroEmprestimo >= 1000)
+    {
+        saldoFinal = cadastros[i].saldo + cadastros[i].dinheiroEmprestimo;
+
+            valorPagar = cadastros[i].dinheiroEmprestimo + (20 * prazo);
+
+            printf("\n-----------------------------------------------------------------------\n");
+            printf("-|Empréstimo desejado: R$%.2f\n" ,cadastros[i].dinheiroEmprestimo);
+            printf("-|Prazo Escolhido: %d\n" ,prazo);
+            printf("-|Valor a pagar no final do prazo escolhido: R$%.2f\n" ,valorPagar);
+            printf("-|Saldo Total com Empréstimo: R$%.2f\n" ,saldoFinal);
+            printf("\n-----------------------------------------------------------------------\n");
+            printf("\n");
+    } 
+
+}
+
+void investimento(struct dados_cadastros *cadastros){
+
+}
+
+int main(){
+    setlocale(LC_ALL ,"portuguese");
+struct dados_cadastros cadastros[999];
+
+    int codigo;
+    int contadorCadastro;
+    int i;
+
+    do
+    {
+        printf("\n\t---Sistema de Gestão Financeira---\n");
+        printf("[1] |-Cadastrar-|\n");
+        printf("[2] |-Depositar ou Retirar dinheiro-|\n");
+        printf("[3] |-Empréstimo-|\n");
+        printf("[4] |-Investimento-|\n");
+        printf("[5] |-Sair do Sistema-|\n");
+        printf("------------------------------------------------\n");
+        printf("Escolha uma das opções acima: \n");
+        scanf("%d" ,&codigo);
+
+        switch (codigo)
+        {
+        case 1:
+                contadorCadastro++;
+            cadastrar(cadastros);
+            limpatela();
+            break;
+
+        case 2:
+                limpatela();
+            depositarEsacar(cadastros);
+            break;
+
+        case 3:
+                limpatela();
+                fazer_emprestimo(cadastros);
+
+            break;
+
+        case 4:
+
+                limpatela();
+
+            break;
+
+        case 5:
+        limpatela();
+            printf("\nObrigado por visitar nosso sistema!\n");
+            printf("Seja sempre Bem-Vindo(a)\n");
+
+            break;
+
+        default:
+                printf("Opção Inválida!\n");
+            break;
+        }
+    } while (codigo != 5);
+
+
+    return 0;
+}
