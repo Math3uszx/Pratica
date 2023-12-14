@@ -3,7 +3,6 @@
 #include <locale.h>
 #include <string.h>
 #include <time.h>
-#include <windows.h>
 
 struct dados_cadastros
 {
@@ -164,7 +163,22 @@ void fazer_emprestimo(struct dados_cadastros *cadastros){
 }
 
 void investimento(struct dados_cadastros *cadastros){
+        float dinheiroInvestido;
+        int meses;
+        float totalRenda;
 
+        printf("\n\t--Investimento--\n");
+        printf("\n\t-|Deposite a quantidade de dinheiro que deseja para ter um investimento de 200 por mês\n");
+        printf("\n-----------------------------------------------------------------------\n");
+        printf("Informe a quantia desejada: \n");
+        scanf("%f" ,&dinheiroInvestido);
+
+        printf("Informe a quantidade de meses para saber o valor total no final do investimento: \n");
+        scanf("%d" ,&meses);
+
+        limpatela();
+        totalRenda = dinheiroInvestido + (200 * meses);
+        printf("Total do rendimento no final: %.2f\n" ,totalRenda);
 }
 
 int main(){
@@ -209,6 +223,7 @@ struct dados_cadastros cadastros[999];
         case 4:
 
                 limpatela();
+                investimento(cadastros);
 
             break;
 
